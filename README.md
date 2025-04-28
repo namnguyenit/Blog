@@ -6,7 +6,7 @@
 
 ## Về tôi ![Avatar](https://via.placeholder.com/150?text=Trung)
 
-Chào bạn, tôi là **Cao Đức Trung**, sinh năm 2005 và hiện là sinh viên ngành **Công nghệ thông tin** tại trường Đại học Phenikaa.
+Chào bạn, tôi là **Cao Đức Trung**,tại Nghệ An, sinh năm 2005 và hiện là sinh viên ngành **Công nghệ thông tin** tại trường Đại học Phenikaa.
 
 Tôi là một lập trình viên hướng nội, đam mê với các công nghệ phần mềm và trí tuệ nhân tạo (AI). Tôi yêu thích **xem phim** 🎬 và **chơi game cốt truyện** 🎮. Mục tiêu của tôi là trở thành lập trình viên chuyên sâu về AI, đặc biệt là các ứng dụng trong lĩnh vực nhận diện khuôn mặt, giao thông và tự động hóa.
 
