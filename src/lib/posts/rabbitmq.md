@@ -15,6 +15,7 @@ excerpt: Check out how heading links work with this starter in this post.
 
 # Báo cáo Tìm hiểu về Dịch vụ Truyền Thông Điệp RabbitMQ
 
+### [Demo project](https://github.com/namnguyenit/Demo_RabbitMQ)
 
 ## 1. Giới thiệu về Hệ thống Truyền Thông Điệp
 
