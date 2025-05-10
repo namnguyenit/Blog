@@ -1,7 +1,7 @@
 ---
 title: "Hệ thống phân tán"
-date: "2023-10-26"
-updated: "2023-10-26"
+date: "2025-04-26"
+updated: "2025-05-05"
 categories:
   - "sveltekit"
   - "markdown"
