@@ -1,7 +1,7 @@
 ---
 title: "Elasticseach"
-date: "2025-04-26"
-updated: "2025-05-05"
+date: "2025-05-12"
+updated: "2025-05-12"
 categories:
   - "sveltekit"
   - "markdown"
