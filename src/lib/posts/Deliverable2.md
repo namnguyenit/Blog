@@ -5,7 +5,7 @@ updated: "2025-05-11"
 categories:
   - "sveltekit"
   - "markdown"
-coverImage: "https://cdn2.fptshop.com.vn/unsafe/2024_5_6_638506204957187926_rabbitmq_.jpg"
+coverImage: "/images/image.png"
 coverWidth: 16
 coverHeight: 9
 excerpt: Check out how heading links work with this starter in this post.
