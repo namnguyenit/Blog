@@ -20,7 +20,7 @@ Bài viết này trình bày ý tưởng và kế hoạch ban đầu để xây 
 
 Kiến trúc dự kiến của hệ thống sẽ hướng tới mô hình microservices, với ý tưởng sử dụng công nghệ container hóa (ví dụ: Docker) để đóng gói và triển khai các thành phần. Sơ đồ dưới đây mô tả kiến trúc tổng thể được hình dung:
 
-![Sơ đồ kiến trúc hệ thống](/image.png)
+![Sơ đồ kiến trúc hệ thống](/images/image.png)
 
 **Chú thích sơ đồ (Ý tưởng ban đầu):**
 
