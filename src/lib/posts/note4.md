@@ -8,7 +8,7 @@ categories:
 coverImage: "/images/image.png"
 coverWidth: 16
 coverHeight: 9
-excerpt: Giải thích về ISP, chặn web và đổi DNS ở Việt Nam, văn phong sinh viên.
+excerpt: Giai thich ve ISP, chan web va doi DNS o Viet Nam, van phong sinh vien.
 ---
 
 # Một số câu hỏi về mạng ở Việt Nam

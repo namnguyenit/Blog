@@ -8,7 +8,7 @@ categories:
 coverImage: "/images/image.png"
 coverWidth: 16
 coverHeight: 9
-excerpt: Báo cáo deliverable 2: mô tả kiến trúc, giao tiếp, bảo mật và các thành phần chính của website.
+excerpt: Bao cao deliverable 2: mo ta kien truc, giao tiep, bao mat va cac thanh phan chinh cua website.
 ---
 
 
