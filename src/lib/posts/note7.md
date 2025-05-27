@@ -5,7 +5,7 @@ updated: "2025-05-22"
 categories:
   - "sveltekit"
   - "markdown"
-coverImage: "https://cdn2.fptshop.com.vn/unsafe/2024_5_6_638506204957187926_rabbitmq_.jpg"
+coverImage: "https://www.researchgate.net/profile/Jeff-Squyres/publication/228687501/figure/fig2/AS:669234074918912@1536562747240/Open-MPIs-Layered-Architecture.png"
 coverWidth: 16
 coverHeight: 9
 excerpt: So sánh các giao thức mạng và tìm hiểu OpenMPI.
