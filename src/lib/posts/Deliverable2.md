@@ -1,5 +1,5 @@
 ---
-title: "Buổi 3 - Truyền thông"
+title: "Deliverable 2: Website"
 date: "2025-05-11"
 updated: "2025-05-11"
 categories:
@@ -106,11 +106,11 @@ Kiến trúc dự kiến của hệ thống sẽ hướng tới mô hình micros
 
 ### f. Giao thức giao tiếp dự kiến
 
-* **Người dùng ↔ Ứng dụng Web Chính:** HTTPS để đảm bảo an toàn.
-* **Ứng dụng Web Chính ↔ MongoDB:** Giao thức TCP/IP, thông qua thư viện kết nối MongoDB (ví dụ: driver Node.js cho MongoDB).
-* **Ứng dụng Web Chính ↔ Elasticsearch:** Giao thức HTTP REST API, thông qua thư viện client của Elasticsearch cho Node.js.
+* **Người dùng <-> Ứng dụng Web Chính:** HTTPS để đảm bảo an toàn.
+* **Ứng dụng Web Chính <-> MongoDB:** Giao thức TCP/IP, thông qua thư viện kết nối MongoDB (ví dụ: driver Node.js cho MongoDB).
+* **Ứng dụng Web Chính <-> Elasticsearch:** Giao thức HTTP REST API, thông qua thư viện client của Elasticsearch cho Node.js.
 * **Giữa các node Elasticsearch:** Giao thức transport nội bộ của Elasticsearch qua TCP/IP (thường cổng 9300) để trao đổi thông tin trạng thái cụm, sao chép shard, và điều phối truy vấn.
-* **Kibana/Logstash ↔ Elasticsearch:** Giao thức HTTP REST API (thường cổng 9200).
+* **Kibana/Logstash <-> Elasticsearch:** Giao thức HTTP REST API (thường cổng 9200).
 
 ## 3. Công Nghệ và Thư Viện Dự Kiến Sử Dụng
 
