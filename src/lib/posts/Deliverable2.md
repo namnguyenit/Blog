@@ -57,7 +57,7 @@ Kiến trúc dự kiến của hệ thống sẽ hướng tới mô hình micros
     * Có thể lưu trữ lịch sử tìm kiếm của người dùng.
 * **Cách thức hoạt động hình dung:**
     * Ứng dụng Web Chính sẽ kết nối và thực hiện các thao tác đọc/ghi dữ liệu với MongoDB.
-    * Dữ liệu sản phẩm từ đây sẽ là nguồn để được đưa vào Elasticsearch cho mục đích tìm kiếm.
+    * Dữ liệu sản phẩm từ đây sẽ là nguồn để đưa vào Elasticsearch cho mục đích tìm kiếm.
     * **Sự phối hợp:** Khi một sản phẩm mới được thêm vào hoặc thông tin sản phẩm được cập nhật trong MongoDB (thông qua Ứng dụng Web Chính), một cơ chế (có thể là event-driven hoặc batch processing dùng Logstash, hoặc logic trong ứng dụng) sẽ được kích hoạt để đồng bộ những thay đổi này sang Elasticsearch. Điều này đảm bảo rằng dữ liệu tìm kiếm luôn được cập nhật.
 
 ### c. Cụm Elasticsearch
@@ -106,11 +106,11 @@ Kiến trúc dự kiến của hệ thống sẽ hướng tới mô hình micros
 
 ### f. Giao thức giao tiếp dự kiến
 
-* **Người dùng <-> Ứng dụng Web Chính:** HTTPS để đảm bảo an toàn.
-* **Ứng dụng Web Chính <-> MongoDB:** Giao thức TCP/IP, thông qua thư viện kết nối MongoDB (ví dụ: driver Node.js cho MongoDB).
-* **Ứng dụng Web Chính <-> Elasticsearch:** Giao thức HTTP REST API, thông qua thư viện client của Elasticsearch cho Node.js.
+* **Người dùng ↔ Ứng dụng Web Chính:** HTTPS để đảm bảo an toàn.
+* **Ứng dụng Web Chính ↔ MongoDB:** Giao thức TCP/IP, thông qua thư viện kết nối MongoDB (ví dụ: driver Node.js cho MongoDB).
+* **Ứng dụng Web Chính ↔ Elasticsearch:** Giao thức HTTP REST API, thông qua thư viện client của Elasticsearch cho Node.js.
 * **Giữa các node Elasticsearch:** Giao thức transport nội bộ của Elasticsearch qua TCP/IP (thường cổng 9300) để trao đổi thông tin trạng thái cụm, sao chép shard, và điều phối truy vấn.
-* **Kibana/Logstash <-> Elasticsearch:** Giao thức HTTP REST API (thường cổng 9200).
+* **Kibana/Logstash ↔ Elasticsearch:** Giao thức HTTP REST API (thường cổng 9200).
 
 ## 3. Công Nghệ và Thư Viện Dự Kiến Sử Dụng
 
