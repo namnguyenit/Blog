@@ -5,10 +5,10 @@ updated: "2025-05-16"
 categories:
   - "sveltekit"
   - "markdown"
-coverImage: "/images/image.png"
+coverImage: "https://www.geelark.com/wp-content/uploads/2024/09/Blog-posts-10.png"
 coverWidth: 16
 coverHeight: 9
-excerpt: Giai thich ve ISP, chan web va doi DNS o Viet Nam, van phong sinh vien.
+excerpt: Giải thích về ISP, chặn web và đổi DNS ở Việt Nam, văn phong sinh viên.
 ---
 
 # Một số câu hỏi về mạng ở Việt Nam

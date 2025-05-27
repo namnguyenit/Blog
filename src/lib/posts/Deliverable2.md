@@ -1,14 +1,14 @@
 ---
 title: "Deliverable 2: Website"
-date: "2025-05-20"
-updated: "2025-05-20"
+date: "2025-05-11"
+updated: "2025-05-11"
 categories:
-  - "project"
-  - "web"
+  - "sveltekit"
+  - "markdown"
 coverImage: "/images/image.png"
 coverWidth: 16
 coverHeight: 9
-excerpt: Bao cao deliverable 2: mo ta kien truc, giao tiep, bao mat va cac thanh phan chinh cua website.
+excerpt: Check out how heading links work with this starter in this post.
 ---
 
 
