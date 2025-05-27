@@ -1,14 +1,14 @@
 ---
 title: "Deliverable 2: Website"
-date: "2025-05-11"
-updated: "2025-05-11"
+date: "2025-05-20"
+updated: "2025-05-20"
 categories:
-  - "sveltekit"
-  - "markdown"
+  - "project"
+  - "web"
 coverImage: "/images/image.png"
 coverWidth: 16
 coverHeight: 9
-excerpt: Check out how heading links work with this starter in this post.
+excerpt: Báo cáo deliverable 2: mô tả kiến trúc, giao tiếp, bảo mật và các thành phần chính của website.
 ---
 
 
