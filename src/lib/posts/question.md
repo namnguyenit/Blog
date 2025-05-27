@@ -1,5 +1,5 @@
 ---
-title: "Distributed System test main questions (Bản mở rộng chi tiết)"
+title: "Distributed System test main questions"
 date: "2025-05-28"
 updated: "2025-05-28"
 categories:
