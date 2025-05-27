@@ -8,7 +8,7 @@ categories:
 coverImage: "https://www.researchgate.net/profile/Jeff-Squyres/publication/228687501/figure/fig2/AS:669234074918912@1536562747240/Open-MPIs-Layered-Architecture.png"
 coverWidth: 16
 coverHeight: 9
-excerpt: So sánh các giao thức mạng và tìm hiểu OpenMPI, văn phong sinh viên, giải thích chi tiết.
+excerpt: Giải thích chi tiết các giao thức mạng (TCP/IP, UDP, HTTP, REST, GraphQL, SOAP, AJAX, RPC, gRPC) và hướng dẫn sử dụng OpenMPI để tính toán song song, trình bày dễ hiểu, văn phong sinh viên.
 ---
 
 # Tổng hợp kiến thức về giao thức mạng & OpenMPI (giải thích kỹ)
