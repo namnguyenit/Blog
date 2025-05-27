@@ -8,7 +8,7 @@ categories:
 coverImage: "https://cdn2.fptshop.com.vn/unsafe/2024_5_6_638506204957187926_rabbitmq_.jpg"
 coverWidth: 16
 coverHeight: 9
-excerpt: So sánh các giao thức mạng và tìm hiểu OpenMPI, văn phong sinh viên.
+excerpt: So sánh các giao thức mạng và tìm hiểu OpenMPI.
 ---
 
 # Tổng hợp kiến thức về giao thức mạng & OpenMPI

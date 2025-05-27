@@ -8,7 +8,7 @@ categories:
 coverImage: "/images/image.png"
 coverWidth: 16
 coverHeight: 9
-excerpt: Check out how heading links work with this starter in this post.
+excerpt: Kế hoạch dự án hệ thống tìm kiếm phân tán.
 ---
 
 

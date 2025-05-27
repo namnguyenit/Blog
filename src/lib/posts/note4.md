@@ -8,7 +8,7 @@ categories:
 coverImage: "https://www.geelark.com/wp-content/uploads/2024/09/Blog-posts-10.png"
 coverWidth: 16
 coverHeight: 9
-excerpt: Giải thích về ISP, chặn web và đổi DNS ở Việt Nam, văn phong sinh viên.
+excerpt: Giải thích về ISP, chặn web và đổi DNS ở Việt Nam.
 ---
 
 # Một số câu hỏi về mạng ở Việt Nam

@@ -8,7 +8,7 @@ categories:
 coverImage: "https://tino.org/wp-content/uploads/2021/08/word-image-210.jpeg"
 coverWidth: 16
 coverHeight: 9
-excerpt: Tổng hợp kiến thức hệ phân tán, so sánh giao thức, giải thích sâu, ví dụ thực tế, văn phong sinh viên.
+excerpt: Tổng hợp kiến thức hệ phân tán, so sánh giao thức, giải thích sâu, ví dụ thực tế.
 ---
 
 # Báo cáo tổng hợp ôn tập Hệ Phân Tán (Bản chi tiết)
