@@ -2,7 +2,7 @@
 
 | Thông tin                | Chi tiết |
 |--------------------------|----------|
-| **Sinh viên thực hiện**  | <table><tr><td>23010018: Cao Đức Trung</td><td>K17_CNTT_1</td></tr><tr><td>22010242: Trần Mai Anh</td><td>K16-CNTT_2</td></tr></table> |
+| **Sinh viên thực hiện**  | 23010018: Cao Đức Trung (K17_CNTT_1), 22010242: Trần Mai Anh (K16-CNTT_2) |
 | **Giảng viên hướng dẫn** | Phạm Kim Thành |
 | **Lớp**                  | Ứng dụng phân tán(N05)-CSE702063 |
 | **Ngày hoàn thành**      | 02-06-2025 |
@@ -500,12 +500,12 @@ Dựa trên phân tích source code và cấu hình hiện tại, dự án đã 
 
 **Tài liệu tham khảo:**
 
-- Tài liệu chính thức của Elasticsearch: [https://www.elastic.co/guide/index.html](https://www.elastic.co/guide/index.html)
-- Tài liệu Docker: [https://docs.docker.com/](https://docs.docker.com/)
-- Tài liệu Node.js: [https://nodejs.org/en/docs/](https://nodejs.org/en/docs/)
-- Tài liệu MongoDB: [https://www.mongodb.com/docs/](https://www.mongodb.com/docs/)
-- Tài liệu Nginx: [https://nginx.org/en/docs/](https://nginx.org/en/docs/)
-- Prometheus: [https://prometheus.io/docs/](https://prometheus.io/docs/)
-- Grafana: [https://grafana.com/docs/](https://grafana.com/docs/)
-- Elasticsearch Exporter (ví dụ: [https://github.com/prometheus-community/elasticsearch_exporter](https://github.com/prometheus-community/elasticsearch_exporter))
+- Tài liệu chính thức của Elasticsearch: https://www.elastic.co/guide/index.html
+- Tài liệu Docker: https://docs.docker.com/
+- Tài liệu Node.js: https://nodejs.org/en/docs/
+- Tài liệu MongoDB: https://www.mongodb.com/docs/
+- Tài liệu Nginx: https://nginx.org/en/docs/
+- Prometheus: https://prometheus.io/docs/
+- Grafana: https://grafana.com/docs/
+- Elasticsearch Exporter: https://github.com/prometheus-community/elasticsearch_exporter
 
