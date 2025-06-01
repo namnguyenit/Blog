@@ -231,7 +231,7 @@ Dưới đây là phân tích chi tiết về các tiêu chí kỹ thuật của
     * Hệ thống được thiết kế để hoạt động trên nhiều máy (thông qua Docker và mạng ảo của Docker, có thể mở rộng ra nhiều host vật lý với Docker Swarm hoặc Kubernetes).
 * **Điểm mạnh:** Sử dụng các giao thức mạng chuẩn và phổ biến.
 * **Điểm yếu/Hạn chế:**
-    * Giao tiếp giữa các thành phần (ví dụ: webapp <-> elasticsearch, webapp <-> mongodb, nginx <-> webapp) mặc định có thể chưa được mã hóa (HTTP thay vì HTTPS, kết nối database không có SSL/TLS).
+    - Giao tiếp giữa các thành phần (ví dụ: webapp ↔ elasticsearch, webapp ↔ mongodb, nginx ↔ webapp) mặc định có thể chưa được mã hóa (HTTP thay vì HTTPS, kết nối database không có SSL/TLS).
 * **Hướng cải thiện/Giải pháp:**
     * **Mã hóa giao tiếp:**
         * Cấu hình SSL/TLS cho Elasticsearch (cả transport layer và HTTP layer).
