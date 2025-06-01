@@ -1,3 +1,17 @@
+---
+title: "Báo cáo Bài tập lớn: Ứng dụng Tìm kiếm Phân tán với Elasticsearch"
+date: "2025-06-02"
+updated: "2025-06-02"
+categories:
+  - "sveltekit"
+  - "markdown"
+coverImage: "https://ant.ncc.asia/wp-content/uploads/2024/05/1_BmvPfSSm2G8C-khX1rhCGg.jpg"
+coverWidth: 20
+coverHeight: 10
+excerpt: Báo cáo tổng hợp bài tập lơn về hệ thống phân tán
+---
+
+
 # Báo cáo Bài tập lớn: Ứng dụng Tìm kiếm Phân tán với Elasticsearch
 
 | Thông tin                | Chi tiết |
