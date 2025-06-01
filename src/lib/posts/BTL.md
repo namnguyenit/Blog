@@ -406,11 +406,11 @@ Dưới đây là phân tích chi tiết về các tiêu chí kỹ thuật của
     * Mật khẩu mặc định hoặc yếu có thể đang được sử dụng.
 * **Hướng cải thiện/Giải pháp:**
     * **Mã hóa mọi nơi (Encryption in transit):**
-        * **Client <-> Nginx:** Cấu hình HTTPS trên Nginx (sử dụng SSL/TLS certificate, có thể dùng Let's Encrypt cho môi trường public hoặc self-signed certificate cho môi trường nội bộ/test).
-        * **Nginx <-> Webapp:** Nếu Nginx và Webapp chạy trên cùng một Docker network được bảo vệ, HTTP có thể chấp nhận được, nhưng HTTPS vẫn tốt hơn.
-        * **Webapp <-> Elasticsearch:** Kích hoạt TLS trên HTTP layer của Elasticsearch. Cấu hình Node.js client để sử dụng HTTPS và tin tưởng certificate của Elasticsearch.
-        * **Webapp <-> MongoDB:** Kích hoạt TLS/SSL cho kết nối MongoDB.
-        * **Elasticsearch internode communication:** Kích hoạt TLS cho transport layer giữa các node Elasticsearch.
+        * Client ↔ Nginx: Cấu hình HTTPS trên Nginx (sử dụng SSL/TLS certificate, có thể dùng Let's Encrypt cho môi trường public hoặc self-signed certificate cho môi trường nội bộ/test).
+        * Nginx ↔ Webapp: Nếu Nginx và Webapp chạy trên cùng một Docker network được bảo vệ, HTTP có thể chấp nhận được, nhưng HTTPS vẫn tốt hơn.
+        * Webapp ↔ Elasticsearch: Kích hoạt TLS trên HTTP layer của Elasticsearch. Cấu hình Node.js client để sử dụng HTTPS và tin tưởng certificate của Elasticsearch.
+        * Webapp ↔ MongoDB: Kích hoạt TLS/SSL cho kết nối MongoDB.
+        * Elasticsearch internode communication: Kích hoạt TLS cho transport layer giữa các node Elasticsearch.
     * **Xác thực và Phân quyền (Authentication & Authorization):**
         * **Elasticsearch:**
             * Kích hoạt X-Pack Security (nếu chưa).
