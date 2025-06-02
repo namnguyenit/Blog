@@ -28,7 +28,7 @@ excerpt: Báo cáo tổng hợp bài tập lơn về hệ thống phân tán
 
 Trong kỷ nguyên số hiện nay, lượng dữ liệu được tạo ra và cần xử lý tăng trưởng với tốc độ chóng mặt. Việc tìm kiếm thông tin một cách nhanh chóng, chính xác và hiệu quả từ các tập dữ liệu khổng lồ đã trở thành một thách thức lớn đối với nhiều tổ chức và ứng dụng. Các hệ thống tìm kiếm truyền thống thường gặp khó khăn trong việc mở rộng, duy trì hiệu năng và đảm bảo tính sẵn sàng khi đối mặt với lượng truy cập và dữ liệu lớn.
 
-Đồ án "Ứng dụng Tìm kiếm Phân tán với Elasticsearch" được thực hiện nhằm giải quyết những thách thức trên bằng cách xây dựng một hệ thống tìm kiếm sản phẩm có khả năng mở rộng, hiệu năng cao và khả năng chịu lỗi tốt. Elasticsearch, một công cụ tìm kiếm và phân tích phân tán mã nguồn mở, được lựa chọn làm nền tảng cốt lõi cho dự án nhờ vào các tính năng mạnh mẽ của nó như tìm kiếm toàn văn (full-text search), khả năng mở rộng theo chiều ngang, và giao diện API RESTful linh hoạt.
+Bài tập lớn "Ứng dụng Tìm kiếm Phân tán với Elasticsearch" được thực hiện nhằm giải quyết những thách thức trên bằng cách xây dựng một hệ thống tìm kiếm sản phẩm có khả năng mở rộng, hiệu năng cao và khả năng chịu lỗi tốt. Elasticsearch, một công cụ tìm kiếm và phân tích phân tán mã nguồn mở, được lựa chọn làm nền tảng cốt lõi cho bài tập lớn nhờ vào các tính năng mạnh mẽ của nó như tìm kiếm toàn văn (full-text search), khả năng mở rộng theo chiều ngang, và giao diện API RESTful linh hoạt.
 
 Báo cáo này sẽ trình bày chi tiết quá trình phân tích bài toán, thiết kế kiến trúc hệ thống, triển khai các thành phần, và đánh giá hiệu quả của ứng dụng. Đặc biệt, báo cáo sẽ đi sâu vào phân tích các khía cạnh phân tán của hệ thống, bao gồm cách Elasticsearch quản lý dữ liệu, xử lý truy vấn, cũng như đánh giá hệ thống dựa trên các tiêu chí kỹ thuật quan trọng như khả năng chịu lỗi, giao tiếp phân tán, cân bằng tải, và bảo mật. Cuối cùng, báo cáo sẽ đưa ra những nhận xét về các điểm đã đạt được, những hạn chế còn tồn tại và đề xuất các hướng phát triển tiềm năng trong tương lai.
 
@@ -36,7 +36,7 @@ Báo cáo này sẽ trình bày chi tiết quá trình phân tích bài toán, t
 
 ### 1.1. Bài toán Đặt ra
 
-Bài toán cốt lõi của đồ án là xây dựng một ứng dụng cho phép người dùng tìm kiếm thông tin sản phẩm một cách nhanh chóng và chính xác từ một cơ sở dữ liệu lớn. Các yêu cầu chính đối với hệ thống bao gồm:
+Bài toán cốt lõi của bài tập lớn là xây dựng một ứng dụng cho phép người dùng tìm kiếm thông tin sản phẩm một cách nhanh chóng và chính xác từ một cơ sở dữ liệu lớn. Các yêu cầu chính đối với hệ thống bao gồm:
 
 - **Hiệu năng cao:** Thời gian phản hồi truy vấn tìm kiếm phải nhanh, ngay cả khi lượng dữ liệu và số lượng người dùng đồng thời tăng lên.
 - **Khả năng mở rộng (Scalability):** Hệ thống phải có khả năng mở rộng dễ dàng để đáp ứng sự gia tăng về khối lượng dữ liệu và lưu lượng truy cập.
@@ -53,11 +53,11 @@ Bài toán cốt lõi của đồ án là xây dựng một ứng dụng cho ph�
   - **Mở rộng theo chiều ngang (Horizontal Scaling):** Dễ dàng tăng dung lượng lưu trữ và khả năng xử lý bằng cách thêm nodes vào cluster.
   - **Tính sẵn sàng cao và chịu lỗi:** Nếu một node gặp sự cố, các replicas trên các nodes khác đảm bảo dữ liệu không bị mất và hệ thống vẫn tiếp tục hoạt động.
 - **Tốc độ và Hiệu năng:** Nhờ vào việc sử dụng inverted index của Lucene và kiến trúc phân tán, Elasticsearch cho phép truy vấn dữ liệu lớn với thời gian phản hồi rất nhanh.
-- **Giao diện RESTful API:** Cung cấp API HTTP dễ sử dụng để tương tác với dữ liệu (CRUD, tìm kiếm, quản trị cluster), cho phép tích hợp dễ dàng với nhiều ngôn ngữ lập trình và ứng dụng khác nhau, bao gồm Node.js được sử dụng trong đồ án này.
+- **Giao diện RESTful API:** Cung cấp API HTTP dễ sử dụng để tương tác với dữ liệu (CRUD, tìm kiếm, quản trị cluster), cho phép tích hợp dễ dàng với nhiều ngôn ngữ lập trình và ứng dụng khác nhau, bao gồm Node.js được sử dụng trong bài tập lớn này.
 - **Schema-Free (Linh hoạt về lược đồ):** Mặc dù có thể định nghĩa mapping (tương tự schema), Elasticsearch cũng có thể tự động nhận diện kiểu dữ liệu, giúp việc lập chỉ mục dữ liệu ban đầu trở nên đơn giản hơn.
-- **Cộng đồng lớn và Hệ sinh thái phong phú:** Có một cộng đồng người dùng và nhà phát triển lớn, cùng với nhiều công cụ hỗ trợ như Logstash (thu thập log), Kibana (trực quan hóa dữ liệu - mặc dù đồ án này không sử dụng trực tiếp Kibana để giám sát node), Beats (thu thập dữ liệu).
+- **Cộng đồng lớn và Hệ sinh thái phong phú:** Có một cộng đồng người dùng và nhà phát triển lớn, cùng với nhiều công cụ hỗ trợ như Logstash (thu thập log), Kibana (trực quan hóa dữ liệu - mặc dù bài tập lớn này không sử dụng trực tiếp Kibana để giám sát node), Beats (thu thập dữ liệu).
 
-Với những ưu điểm vượt trội này, Elasticsearch là một lựa chọn phù hợp để xây dựng nền tảng cho ứng dụng tìm kiếm phân tán của đồ án.
+Với những ưu điểm vượt trội này, Elasticsearch là một lựa chọn phù hợp để xây dựng nền tảng cho ứng dụng tìm kiếm phân tán của bài tập lớn.
 
 ## 2. Phân tích Hệ thống
 
@@ -72,17 +72,17 @@ Sơ đồ kiến trúc tổng quan:
 - **Client (Người dùng):** Tương tác với hệ thống thông qua giao diện web trên trình duyệt.
 - **Nginx:** Đóng vai trò là reverse proxy và load balancer, tiếp nhận các yêu cầu HTTP từ client và phân phối chúng đến các instance của Web Application.
 - **Web Application (Node.js):** Là tầng backend xử lý logic nghiệp vụ. Ứng dụng này cung cấp các API cho việc tìm kiếm sản phẩm (tương tác với Elasticsearch) và quản lý dữ liệu sản phẩm (tương tác với MongoDB).
-- **Elasticsearch Cluster:** Cụm Elasticsearch bao gồm nhiều node (trong đồ án này là 3 nodes: `es01`, `es02`, `es03`) chịu trách nhiệm lưu trữ, lập chỉ mục (indexing) dữ liệu sản phẩm và thực thi các truy vấn tìm kiếm.
+- **Elasticsearch Cluster:** Cụm Elasticsearch bao gồm nhiều node (trong bài tập lớn này là 3 nodes: `es01`, `es02`, `es03`) chịu trách nhiệm lưu trữ, lập chỉ mục (indexing) dữ liệu sản phẩm và thực thi các truy vấn tìm kiếm.
 - **MongoDB:** Hệ quản trị cơ sở dữ liệu NoSQL, được sử dụng làm nguồn lưu trữ chính cho thông tin chi tiết của sản phẩm, thông tin người dùng và lịch sử tìm kiếm. Dữ liệu từ MongoDB sẽ được đồng bộ hóa sang Elasticsearch để phục vụ cho việc tìm kiếm.
 
 ### 2.2. Các Thành phần Chính
 
 #### 2.2.1. Elasticsearch Cluster
 
-- **Cấu hình:** Cụm Elasticsearch trong đồ án được triển khai với 3 nodes (`es01`, `es02`, `es03`) sử dụng Docker. Các node này được cấu hình để tự khám phá (discovery) lẫn nhau và hình thành một cluster.
+- **Cấu hình:** Cụm Elasticsearch trong bài tập lớn được triển khai với 3 nodes (`es01`, `es02`, `es03`) sử dụng Docker. Các node này được cấu hình để tự khám phá (discovery) lẫn nhau và hình thành một cluster.
   - Trong `docker-compose.yml`, các node được định nghĩa với `discovery.seed_hosts: "es01,es02"` và `cluster.initial_master_nodes: "es01,es02"`.
   - Mỗi node chạy phiên bản Elasticsearch `8.13.2`.
-- **Vai trò của Nodes:** Trong một cluster Elasticsearch, các node có thể đảm nhận các vai trò khác nhau (master, data, coordinating). Trong cấu hình mặc định của đồ án, mỗi node có thể đảm nhận nhiều vai trò.
+- **Vai trò của Nodes:** Trong một cluster Elasticsearch, các node có thể đảm nhận các vai trò khác nhau (master, data, coordinating). Trong cấu hình mặc định của bài tập lớn, mỗi node có thể đảm nhận nhiều vai trò.
   - **Master-eligible node:** Chịu trách nhiệm quản lý trạng thái của cluster, ví dụ như tạo/xóa index, theo dõi các node trong cluster, và quyết định shard nào được phân bổ ở đâu.
   - **Data node:** Lưu trữ dữ liệu (shards) và thực thi các thao tác liên quan đến dữ liệu như CRUD, tìm kiếm, và tổng hợp.
   - **Coordinating node:** Nhận yêu cầu từ client, chuyển tiếp chúng đến các data node thích hợp, sau đó tổng hợp kết quả và trả về cho client. Bất kỳ node nào cũng có thể đóng vai trò này.
@@ -94,7 +94,7 @@ Sơ đồ kiến trúc tổng quan:
 - **Vai trò:** Là cơ sở dữ liệu chính cho dữ liệu sản phẩm, người dùng, và các thông tin khác không trực tiếp phục vụ cho tìm kiếm tốc độ cao.
 - **Cấu hình:** Một instance MongoDB (service `mongo` trong `docker-compose.yml`) được sử dụng.
 - **Tương tác:** Web Application sử dụng Mongoose (thư viện tươn tác dành cho NodeJs) để tương tác với MongoDB cho các thao tác CRUD dữ liệu.
-- **Đồng bộ dữ liệu:** Cần có cơ chế để đồng bộ dữ liệu từ MongoDB sang Elasticsearch khi có sự thay đổi (thêm, sửa, xóa sản phẩm). Trong đồ án này, việc đồng bộ có thể được thực hiện thông qua các hàm trong `productController.js` và `elasticsearchService.js` khi có thao tác cập nhật sản phẩm.
+- **Đồng bộ dữ liệu:** Cần có cơ chế để đồng bộ dữ liệu từ MongoDB sang Elasticsearch khi có sự thay đổi (thêm, sửa, xóa sản phẩm). Trong bài tập lớn này, việc đồng bộ có thể được thực hiện thông qua các hàm trong `productController.js` và `elasticsearchService.js` khi có thao tác cập nhật sản phẩm.
 
 #### 2.2.3. Web Application (Node.js)
 
@@ -147,7 +147,7 @@ Elasticsearch đạt được khả năng phân tán dữ liệu thông qua cơ 
     - **Tăng thông lượng tìm kiếm:** Các truy vấn tìm kiếm có thể được xử lý bởi cả primary shard và replica shards, giúp phân tán tải và tăng khả năng xử lý đồng thời.
   - Replica shards không bao giờ được đặt trên cùng một node với primary shard của nó. Số lượng replica shards có thể thay đổi bất cứ lúc nào.
 
-Trong đồ án này, khi tạo index sản phẩm, cấu hình số lượng primary shards và replica shards sẽ quyết định mức độ phân tán và khả năng chịu lỗi của dữ liệu tìm kiếm.
+Trong bài tập lớn này, khi tạo index sản phẩm, cấu hình số lượng primary shards và replica shards sẽ quyết định mức độ phân tán và khả năng chịu lỗi của dữ liệu tìm kiếm.
 
 ### 3.2. Phân tán Xử lý Tìm kiếm (Distributed Search Execution)
 
@@ -233,7 +233,7 @@ Dưới đây là phân tích chi tiết về các tiêu chí kỹ thuật của
         * Nginx đã có sẵn để cân bằng tải, chỉ cần cấu hình để nó biết đến nhiều backend webapp instances.
     * **MongoDB:**
         * Triển khai MongoDB dưới dạng một **Replica Set**. Một replica set bao gồm nhiều MongoDB instances (một primary và nhiều secondaries). Nếu primary lỗi, một secondary sẽ được bầu chọn làm primary mới. Điều này đòi hỏi cấu hình phức tạp hơn trong `docker-compose.yml` và cho các instances MongoDB.
-    * **Nginx:** Để tăng khả năng chịu lỗi cho Nginx, có thể sử dụng các giải pháp như Keepalived với Virtual IP (VIP) để có cơ chế failover giữa nhiều Nginx instances, tuy nhiên điều này thường phức tạp hơn cho một đồ án.
+    * **Nginx:** Để tăng khả năng chịu lỗi cho Nginx, có thể sử dụng các giải pháp như Keepalived với Virtual IP (VIP) để có cơ chế failover giữa nhiều Nginx instances, tuy nhiên điều này thường phức tạp hơn cho một bài tập lớn.
 
 ### 4.2. Distributed Communication (Giao tiếp phân tán)
 
@@ -466,7 +466,7 @@ Dưới đây là phân tích chi tiết về các tiêu chí kỹ thuật của
 
 ### 5.1. Các Tiêu chí Đã Đạt được
 
-Dựa trên phân tích source code và cấu hình hiện tại, dự án đã đạt được các tiêu chí sau ở mức độ tốt hoặc cơ bản:
+Dựa trên phân tích source code và cấu hình hiện tại, bài tập lớn đã đạt được các tiêu chí sau ở mức độ tốt hoặc cơ bản:
 
 * **Distributed Communication:** Các thành phần giao tiếp qua mạng.
 * **Sharding hoặc Replication:** Elasticsearch sử dụng cả hai cơ chế này hiệu quả.
@@ -483,7 +483,7 @@ Dựa trên phân tích source code và cấu hình hiện tại, dự án đã 
 * **Consistency Guarantees:** Cần hiểu rõ và cấu hình phù hợp hơn với yêu cầu nghiệp vụ, đặc biệt là đồng bộ giữa MongoDB và Elasticsearch.
 * **Security Features:** Đây là điểm yếu lớn, cần cải thiện toàn diện từ mã hóa giao tiếp, xác thực, phân quyền đến bảo mật ứng dụng.
 
-### 5.3. Hạn chế của Đồ án
+### 5.3. Hạn chế của Bài tập lớn
 
 * **Giám sát và Ghi log:** Hệ thống giám sát và ghi log còn sơ sài, chưa đáp ứng nhu cầu theo dõi và vận hành một hệ thống phân tán phức tạp.
 * **Bảo mật:** Các khía cạnh bảo mật chưa được chú trọng đúng mức, tiềm ẩn nhiều rủi ro.
@@ -508,7 +508,7 @@ Dựa trên phân tích source code và cấu hình hiện tại, dự án đã 
 
 ## Lời Kết
 
-Đồ án "Ứng dụng Tìm kiếm Phân tán với Elasticsearch" đã thành công trong việc xây dựng một hệ thống tìm kiếm cơ bản, tận dụng được các ưu điểm của Elasticsearch về khả năng phân tán và hiệu năng. Việc phân tích dựa trên các tiêu chí kỹ thuật đã chỉ ra những mặt đã đạt được cũng như các khía cạnh cần cải thiện, đặc biệt là về giám sát, bảo mật và khả năng chịu lỗi của toàn hệ thống. Các giải pháp và hướng phát triển được đề xuất sẽ là kim chỉ nam quan trọng để tiếp tục hoàn thiện và nâng cao chất lượng của ứng dụng, đưa nó đến gần hơn với một hệ thống sẵn sàng cho môi trường production.
+Bài tập lớn "Ứng dụng Tìm kiếm Phân tán với Elasticsearch" đã thành công trong việc xây dựng một hệ thống tìm kiếm cơ bản, tận dụng được các ưu điểm của Elasticsearch về khả năng phân tán và hiệu năng. Việc phân tích dựa trên các tiêu chí kỹ thuật đã chỉ ra những mặt đã đạt được cũng như các khía cạnh cần cải thiện, đặc biệt là về giám sát, bảo mật và khả năng chịu lỗi của toàn hệ thống. Các giải pháp và hướng phát triển được đề xuất sẽ là kim chỉ nam quan trọng để tiếp tục hoàn thiện và nâng cao chất lượng của ứng dụng, đưa nó đến gần hơn với một hệ thống sẵn sàng cho môi trường production.
 
 ---
 
